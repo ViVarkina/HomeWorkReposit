@@ -1,3 +1,5 @@
+import Message from "./Message.tsx";
+import AlternativeMessage from "./AlternativeMessage.tsx";
 
 const messageData = {
     avatar: 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg',
@@ -11,15 +13,15 @@ function Homework1() {
         <div>
             <hr/>
             homeworks 1
-            {/*should work (должно работать)*/}
-            {/*<Message*/}
-            {/*    avatar={messageData.avatar}*/}
-            {/*    name={messageData.name}*/}
-            {/*    message={messageData.message}*/}
-            {/*    time={messageData.time}*/}
-            {/*/>*/}
+            should work (должно работать)
+            <Message
+                avatar={messageData.avatar}
+                name={messageData.name}
+                message={messageData.message}
+                time={messageData.time}
+            />
             <hr/>
-            {/*<AlternativeMessage/>*/}
+            <AlternativeMessage/>
             <hr/>
         </div>
     )
