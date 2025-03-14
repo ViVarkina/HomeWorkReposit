@@ -1,4 +1,4 @@
-import Homework1 from "./homework/hw1/Homework1.tsx";
+import Homework1 from "./homework/homework1/Homework1.tsx";
 
 
 function App() {
