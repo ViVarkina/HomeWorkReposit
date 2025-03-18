@@ -14,9 +14,17 @@ body{
     align-items: end;
 }
 
+.divWrapperRevert{
+    flex-direction: row-reverse;
+}
+
 .divCommonWrapper{
     display: flex;
     align-items: end;
+}
+
+.revertConteiner{
+    flex-direction: row-reverse;
 }
 
 
@@ -32,23 +40,33 @@ body{
     width: 200px;
     color: #9EAF9C;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
+    box-sizing: border-box;
     justify-content: space-between;
-    border-radius: 10px 10px 10px 0px;
+    border-radius: 10px 10px 10px 0;
+    gap: 8px;
+}
+.mainWrapperRevert{
+    border-radius: 10px 10px 0 10px;
 }
 
 .mainContainer{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    flex-grow: 1;
+    word-break: break-all;
+
 }
 
 .nameSize{
     color: #A397C6;
+    word-break: break-all;
 }
 
 .timeSize{
     color:#324B2D;
+    /*width: 50px;*/
 }
 
 .divContsinerTraingle{
@@ -56,4 +74,10 @@ body{
     height: 0;
     border-bottom: 10px solid #082103;
     border-left: 10px solid transparent;
+    border-right: none;
+}
+
+.divContsinerTraingleRever{
+    border-left: none;
+    border-right: 10px solid transparent;
 }
