@@ -10,7 +10,7 @@ const messageData = {
 function Homework1() {
     return (
         <div>
-            <hr/>
+            {/*<hr/>*/}
             {/*homeworks 1*/}
             {/*should work (должно работать)*/}
             <Message
@@ -19,9 +19,9 @@ function Homework1() {
                 message={messageData.message}
                 time={messageData.time}
             />
-            <hr/>
-            {/*<AlternativeMessage/>*/}
-            <hr/>
+            {/*<hr/>*/}
+            {/*/!*<AlternativeMessage/>*!/*/}
+            {/*<hr/>*/}
         </div>
     )
 }

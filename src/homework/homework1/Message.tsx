@@ -7,16 +7,20 @@ interface Props {
     time: string
 }
 
-
 function Message({avatar, name, message, time}: Props) {
     return (
         <div className={css.divWrapper}>
             <img src={avatar} className={css.imgSize}/>
-            <div className={css.mainContainer}>
-                <span className={css.nameSize}>{name}</span>
-                <p className={css.messageSize}>{message}</p>
-                <div className={css.timeSize}>
-                    {time}
+            <div className={css.divCommonWrapper}>
+                <div className={css.divContsinerTraingle}></div>
+                <div className={css.mainWrapper}>
+                    <div className={css.mainContainer}>
+                        <span className={css.nameSize}>{name}</span>
+                        <p>{message}</p>
+                    </div>
+                    <div className={css.timeSize}>
+                        {time}
+                    </div>
                 </div>
             </div>
         </div>
