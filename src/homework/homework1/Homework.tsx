@@ -1,4 +1,5 @@
-import Message from "./Message.tsx";
+import {Message} from "./Message.tsx";
+
 
 const messageData = {
     avatar: 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg',
@@ -19,7 +20,7 @@ const messageData2 = {
     time: '12:00',
 }
 
-function Homework1() {
+export const Homework=()=> {
     return (
         <div style={{display:'flex', flexDirection:'column', gap:'10px', width: '500px'}}>
             {/*<hr/>*/}
@@ -51,4 +52,4 @@ function Homework1() {
     )
 }
 
-export default Homework1
+

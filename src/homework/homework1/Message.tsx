@@ -1,15 +1,22 @@
 import css from './Message.module.css'
 
-const clx=(arrSrting:string[], obj?:Record<string, boolean | undefined> ):string=>{
-    console.log(arrSrting, obj)
-    // методы
-    return //  "1 2 3"
+const clx=(arrString:string[], obj?:Record<string, boolean | undefined> ):string=>{
+    console.log(arrString, obj, '1')
+    for(const key in obj){
+        console.log(obj.key, key, 'for')
+        if(obj.key === true) {
+            console.log(obj.key, key, 'if')
+            const newArr = [...arrString, key]
+            return  newArr.join(', ')
+        }
+        else {
+            console.log(obj.key, key, 'else')
+            return arrString.join(', ')
+        }
+    }
 }
-console.log(clx(['1', '2'], {'3':true, '4':false, '5':undefined}))
 console.log(clx(['класс1', "класс2"], {'класс3':true, 'класс4':false, 'класс5':undefined}))
 //  "1 2 3"
-
-// 1 2 3
 
 interface Props {
     avatar: string
@@ -20,16 +27,15 @@ interface Props {
 }
 
 
-function Message({avatar, name, message, time, incoming}: Props) {
+export const Message=({avatar, name, message, time, incoming}: Props)=> {
     // const css = {divWrapper:'diwWrapper'};
 
     return (
-        // <div className={`${css.divWrapper} ${incoming ? css.divWrapperRevert :''}`}>
         <div className={clx([css.divWrapper],{[css.divWrapperRevert]:incoming})}>
             <img src={avatar} className={css.imgSize}/>
-            <div className={`${css.divCommonWrapper} ${incoming ? css.revertConteiner : ''}`}>
-                <div className={`${css.divContsinerTraingle} ${incoming ? css.divContsinerTraingleRever : ''}`}></div>
-                <div className={`${css.mainWrapper} ${incoming ? css.mainWrapperRevert : ''}`}>
+            <div className={clx([css.divCommonWrapper],{[css.revertConteiner]:incoming})}>
+                <div className={clx([css.divContsinerTraingle],{[css.divContsinerTraingleRever]:incoming})}></div>
+                <div className={clx([css.mainWrapper],{[css.mainWrapperRevert]:incoming})}>
                     <div className={css.mainContainer}>
                         <span className={css.nameSize}>{name}</span>
                         <p>{message}</p>
@@ -42,7 +48,3 @@ function Message({avatar, name, message, time, incoming}: Props) {
         </div>
     )
 }
-
-
-
-export default Message
