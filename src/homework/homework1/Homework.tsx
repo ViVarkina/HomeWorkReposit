@@ -23,9 +23,6 @@ const messageData2 = {
 export const Homework=()=> {
     return (
         <div style={{display:'flex', flexDirection:'column', gap:'10px', width: '500px'}}>
-            {/*<hr/>*/}
-            {/*homeworks 1*/}
-            {/*should work (должно работать)*/}
             <Message
                 avatar={messageData.avatar}
                 name={messageData.name}
@@ -45,9 +42,7 @@ export const Homework=()=> {
                 time={messageData2.time}
                 incoming
             />
-            {/*<hr/>*/}
-            {/*<AlternativeMessage/>*/}
-            {/*<hr/>*/}
+
         </div>
     )
 }

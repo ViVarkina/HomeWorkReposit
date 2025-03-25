@@ -1,22 +1,16 @@
 import css from './Message.module.css'
 
 const clx=(arrString:string[], obj?:Record<string, boolean | undefined> ):string=>{
-    console.log(arrString, obj, '1')
-    for(const key in obj){
-        console.log(obj.key, key, 'for')
-        if(obj.key === true) {
-            console.log(obj.key, key, 'if')
-            const newArr = [...arrString, key]
-            return  newArr.join(', ')
-        }
-        else {
-            console.log(obj.key, key, 'else')
-            return arrString.join(', ')
+    const newArr = [...arrString]
+
+    for(const key in obj) {
+        if (obj[key] === true) {
+            newArr.push(key)
         }
     }
+    return newArr.join(' ')
 }
-console.log(clx(['класс1', "класс2"], {'класс3':true, 'класс4':false, 'класс5':undefined}))
-//  "1 2 3"
+
 
 interface Props {
     avatar: string
@@ -28,7 +22,6 @@ interface Props {
 
 
 export const Message=({avatar, name, message, time, incoming}: Props)=> {
-    // const css = {divWrapper:'diwWrapper'};
 
     return (
         <div className={clx([css.divWrapper],{[css.divWrapperRevert]:incoming})}>
