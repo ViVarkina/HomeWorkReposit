@@ -1,6 +1,10 @@
 import css from './Message.module.css'
 
 export const clx=(arrString:string[], obj?:Record<string, boolean | undefined> ):string=>{
+    if(!arrString){
+        return ''
+    }
+
     const newArr = [...arrString]
 
     for(const key in obj) {

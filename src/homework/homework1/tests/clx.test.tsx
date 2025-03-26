@@ -22,5 +22,10 @@ describe('clx tests', () => {
         expect(clx([])).toBe('')
     })
 
+    test('crash className', () => {
+        // @ts-ignore
+        expect(clx(undefined)).toBe('')
+    })
+
 
 })
