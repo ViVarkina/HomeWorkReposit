@@ -1,10 +1,11 @@
-import {Homework} from "./homework/homework1/Homework.tsx";
 import './App.css'
+import Homework2 from "./homework/homework2/Homework2.tsx";
 
 
 function App() {
     return (<>
-        <Homework/>
+        {/*<Homework/>*/}
+        <Homework2/>
     </>)
 }
 
