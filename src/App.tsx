@@ -1,5 +1,5 @@
 import './App.css'
-import Homework2 from "./homework/homework2/Homework2.tsx";
+import {Homework2} from "./homework/homework2/Homework2.tsx";
 
 
 function App() {

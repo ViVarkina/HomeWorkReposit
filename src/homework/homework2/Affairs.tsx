@@ -1,4 +1,4 @@
-import Affair from './Affair'
+import {Affair} from './Affair'
 import {AffairType, FilterType} from './Homework2.tsx'
 import {Dispatch, SetStateAction} from "react";
 
@@ -8,24 +8,32 @@ type AffairsPropsType = { // need to fix any
     deleteAffairCallback: (_id:number)=>void
 }
 
-function Affairs(props: AffairsPropsType) {
-    const mappedAffairs = props.data.map((a) => (
+export const Affairs=({deleteAffairCallback, data, setFilter}:AffairsPropsType)=> {
+    const mappedAffairs = data.map((a) => (
         <Affair // should work
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
             affair={a.name}
-            deleteAffairCallback={props.deleteAffairCallback}
+            deleteAffairCallback={deleteAffairCallback}
         />
     ))
 
-    const setAll = () => {} // need to fix
-    const setHigh = () => {}
-    const setMiddle = () => {}
-    const setLow = () => {}
+    const setAll = () => {
+        return setFilter('all')
+    } // need to fix
+    const setHigh = () => {
+        return setFilter('high')
+    }
+    const setMiddle = () => {
+        return setFilter('middle')
+    }
+    const setLow = () => {
+        return setFilter('low')
+    }
 
     return (
-        <div>
+        <div >
 
-            {mappedAffairs}
+            <div>{mappedAffairs}</div>
 
             <button onClick={setAll}>All</button>
             <button onClick={setHigh}>High</button>
