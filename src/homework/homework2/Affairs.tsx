@@ -1,10 +1,10 @@
 import {Affair} from './Affair'
-import {AffairType, FilterType} from './Homework2.tsx'
+import {AffairPriorityType, AffairType} from './Homework2.tsx'
 import {Dispatch, SetStateAction} from "react";
 
 type AffairsPropsType = { // need to fix any
     data: AffairType[]
-    setFilter: Dispatch<SetStateAction<FilterType>>
+    setFilter: Dispatch<SetStateAction<AffairPriorityType>>
     deleteAffairCallback: (_id:number)=>void
 }
 
@@ -14,20 +14,21 @@ export const Affairs=({deleteAffairCallback, data, setFilter}:AffairsPropsType)=
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
             affair={a.name}
             deleteAffairCallback={deleteAffairCallback}
+            id={a._id}
         />
     ))
 
     const setAll = () => {
-        return setFilter('all')
+        return setFilter(AffairPriorityType.ALL)
     } // need to fix
     const setHigh = () => {
-        return setFilter('high')
+        return setFilter(AffairPriorityType.HIGH)
     }
     const setMiddle = () => {
-        return setFilter('middle')
+        return setFilter(AffairPriorityType.MIDDLE)
     }
     const setLow = () => {
-        return setFilter('low')
+        return setFilter(AffairPriorityType.LOW)
     }
 
     return (

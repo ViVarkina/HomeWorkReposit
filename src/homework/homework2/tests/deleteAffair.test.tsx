@@ -1,16 +1,17 @@
 import { describe, test, expect, beforeEach } from 'vitest'
-import {AffairType, deleteAffair} from '../Homework2.tsx'
+import {AffairPriorityType, AffairType} from '../Homework2.tsx'
+import {deleteAffair} from "../utils";
 
 let initialState: AffairType[]
 
 beforeEach(() => {
     initialState = [
-        {_id: 1, name: 'React', priority: 'high'},
-        {_id: 2, name: 'anime', priority: 'low'},
-        {_id: 3, name: 'games', priority: 'low'},
-        {_id: 4, name: 'work', priority: 'high'},
-        {_id: 5, name: 'html & css', priority: 'middle'},
-        {_id: 6, name: 'porn', priority: 'low'},
+        {_id: 1, name: 'React', priority: AffairPriorityType.HIGH},
+        {_id: 2, name: 'anime', priority: AffairPriorityType.LOW},
+        {_id: 3, name: 'games', priority: AffairPriorityType.LOW},
+        {_id: 4, name: 'work', priority: AffairPriorityType.HIGH},
+        {_id: 5, name: 'html & css', priority: AffairPriorityType.MIDDLE},
+        {_id: 6, name: 'porn', priority: AffairPriorityType.LOW},
     ]
 })
 
