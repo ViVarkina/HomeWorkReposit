@@ -6,15 +6,17 @@ type AffairsPropsType = { // need to fix any
     data: AffairType[]
     setFilter: Dispatch<SetStateAction<AffairPriorityType>>
     deleteAffairCallback: (_id:number)=>void
+    saveTitle: (value: string) => void;
 }
 
-export const Affairs=({deleteAffairCallback, data, setFilter}:AffairsPropsType)=> {
+export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle}:AffairsPropsType)=> {
     const mappedAffairs = data.map((a) => (
         <Affair // should work
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
             affair={a.name}
             deleteAffairCallback={deleteAffairCallback}
             id={a._id}
+            saveTitle={saveTitle}
         />
     ))
 

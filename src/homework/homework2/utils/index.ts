@@ -1,5 +1,6 @@
 import {AffairType, AffairPriorityType} from "../Homework2.tsx";
 
+
 export const filterAffairs = (affairs: AffairType[], filter: AffairPriorityType): AffairType[] => { // need to fix any
     const filterAffairs = [...affairs]
     switch (filter){
