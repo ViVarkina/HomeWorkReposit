@@ -6,7 +6,7 @@ type AffairsPropsType = { // need to fix any
     data: AffairType[]
     setFilter: Dispatch<SetStateAction<AffairPriorityType>>
     deleteAffairCallback: (_id:number)=>void
-    saveTitle: (value: string) => void;
+    saveTitle: (params:{value: string, callback: () => void, id:number}) => void;
 }
 
 export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle}:AffairsPropsType)=> {

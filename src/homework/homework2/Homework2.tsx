@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Affairs from './Affairs'
-import {deleteAffair, filterAffairs, saveTitleInput} from "./utils";
+import {deleteAffair, filterAffairs, renameName} from "./utils";
 
 // export type AffairPriorityType = 'low' | 'high' | 'middle' // need to fix any
 
@@ -35,7 +35,10 @@ export const Homework2=()=> {
 
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
-    const renameAffairCallback = () => setAffairs(affairs) // need to fix any
+    const renameAffairCallback = ({id, value, callback}:{value:string, callback:()=>void, id:number}) => {
+        setAffairs(renameName(affairs, id, value));
+        callback()
+    }
 
     return (
         <div>

@@ -4,7 +4,7 @@ type AffairPropsType = {
     affair: string // need to fix any
     deleteAffairCallback: (_id:number)=>void // need to fix any
     id : number
-    saveTitle: (value: string, callBack: () => void) => void;
+    saveTitle: (params:{value: string, callback: () => void, id:number}) => void;
 
 }
 
@@ -12,12 +12,12 @@ export const Affair=({affair, deleteAffairCallback, id, saveTitle}:AffairPropsTy
     const [nameVisit, setNameVisit] = useState<boolean>(true);
     const [value, setValue] = useState<string>(affair);
 
-    const close = () => {
+    const closeInput = () => {
         setNameVisit(true);
     };
 
     const saveTitleInput = () => {
-        saveTitle(affair, close);
+        saveTitle({value, callback:closeInput, id});
     };
 
 
@@ -44,7 +44,7 @@ export const Affair=({affair, deleteAffairCallback, id, saveTitle}:AffairPropsTy
                         setValue(affair)
                     }}>отменить</button>
                     <button onClick={()=>(
-                        saveTitleInput
+                        saveTitleInput()
                     )}>готово</button>
                 </div>
 
