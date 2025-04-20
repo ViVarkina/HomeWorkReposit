@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Affairs from './Affairs'
-import {deleteAffair, filterAffairs, renameName} from "./utils";
+import {deleteAffair, filterAffairs, renameName, renamePriority} from "./utils";
 
 // export type AffairPriorityType = 'low' | 'high' | 'middle' // need to fix any
 
@@ -33,10 +33,15 @@ export const Homework2=()=> {
     const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<AffairPriorityType>(AffairPriorityType.ALL)
 
+
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
     const renameAffairCallback = ({id, value, callback}:{value:string, callback:()=>void, id:number}) => {
         setAffairs(renameName(affairs, id, value));
+        callback()
+    }
+    const renamePriorityAffairCallback = ({id, callback, value}:{value:string, callback:()=>void, id:number}) => {
+        setAffairs(renamePriority(affairs, id, value));
         callback()
     }
 
@@ -47,6 +52,7 @@ export const Homework2=()=> {
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
                 saveTitle={renameAffairCallback}
+                savePriority={renamePriorityAffairCallback}
             />
         </div>
     )
