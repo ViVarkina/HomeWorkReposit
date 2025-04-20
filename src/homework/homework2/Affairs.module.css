@@ -17,18 +17,60 @@
 .divWrapperBtn{
     display: flex;
     gap: 10px;
+    margin: 5px
 }
 
 .divMainWrapper{
     display: flex;
     gap: 20px;
     padding: 10px 5px;
+    ;
 }
 
 .filterBtn{
     padding: 3px 10px;
-    background: #b9e7ff;
+    background: #7da3b6;
     border: none;
     border-radius: 5px;
     color: white;
+}
+
+.divContainerFilter{
+    display: flex;
+    gap: 10px;
+}
+
+.changeBtn{
+    padding: 2px 5px;
+    background: #cbb8d7;
+    border: none;
+    border-radius: 5px;
+    color: #36293d;
+}
+
+.options{
+    padding: 2px 5px;
+    background: #d4e8ff;
+    border: none;
+    border-radius: 5px;
+    color: #292f3d;
+
+}
+
+.inputSetting{
+    background: #d4e8ff;
+    border: none;
+    border-radius: 5px;
+    color: #292f3d;
+    padding: 2px 5px;
+}
+
+.btnDel{
+    padding: 5px;
+    background: #f86e6e;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    width: 30px;
+    height: 30px;
 }

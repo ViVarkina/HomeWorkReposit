@@ -41,11 +41,13 @@ export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePri
         <div >
 
             <div>{mappedAffairs}</div>
+            <div className={css.divContainerFilter}>
+                <button onClick={setAll} className={css.filterBtn}>All</button>
+                <button onClick={setHigh} className={css.filterBtn}>High</button>
+                <button onClick={setMiddle} className={css.filterBtn}>Middle</button>
+                <button onClick={setLow} className={css.filterBtn}>Low</button>
+            </div>
 
-            <button onClick={setAll} className={css.filterBtn}>All</button>
-            <button onClick={setHigh} className={css.filterBtn}>High</button>
-            <button onClick={setMiddle} className={css.filterBtn}>Middle</button>
-            <button onClick={setLow} className={css.filterBtn}>Low</button>
         </div>
     )
 }
