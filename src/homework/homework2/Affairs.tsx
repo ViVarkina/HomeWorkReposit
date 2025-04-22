@@ -9,7 +9,7 @@ type AffairsPropsType = { // need to fix any
     setFilter: Dispatch<SetStateAction<AffairPriorityType>>
     deleteAffairCallback: (_id:number)=>void
     saveTitle: (params:{value: string, callback: () => void, id:number}) => void;
-    savePriority:(params:{callback: () => void, id:number, value: string}) => void;
+    savePriority:(params:{callback: () => void, id:number, value: AffairPriorityType}) => void;
 }
 
 export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePriority}:AffairsPropsType)=> {
@@ -17,6 +17,7 @@ export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePri
         <Affair // should work
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
             affair={a.name}
+            priority={a.priority}
             deleteAffairCallback={deleteAffairCallback}
             id={a._id}
             saveTitle={saveTitle}

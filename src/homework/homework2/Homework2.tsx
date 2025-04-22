@@ -4,8 +4,8 @@ import {deleteAffair, filterAffairs, renameName, renamePriority} from "./utils";
 
 // export type AffairPriorityType = 'low' | 'high' | 'middle' // need to fix any
 
-export enum AffairPriorityType{
-    LOW="low",
+export enum AffairPriorityType {
+    LOW = "low",
     HIGH = 'high',
     MIDDLE = 'middle',
     ALL = 'all'
@@ -13,8 +13,8 @@ export enum AffairPriorityType{
 
 
 export type AffairType = {
-    _id:number
-    name:string
+    _id: number
+    name: string
     priority: AffairPriorityType
 }
 
@@ -29,20 +29,23 @@ const defaultAffairs: AffairType[] = [ // need to fix any
 ]
 
 
-export const Homework2=()=> {
+export const Homework2 = () => {
     const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<AffairPriorityType>(AffairPriorityType.ALL)
 
 
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
-    const renameAffairCallback = ({id, value, callback}:{value:string, callback:()=>void, id:number}) => {
-        setAffairs(renameName(affairs, id, value));
-        callback()
-    }
-    const renamePriorityAffairCallback = ({id, callback, value}:{value:string, callback:()=>void, id:number}) => {
-        setAffairs(renamePriority(affairs, id, value));
-        callback()
+
+    const changeAffairsCallback = <T,>({changeAffairCallback, id, value, affairs, successCallback}: {
+        changeAffairCallback: (affair: AffairType[], id: number, value: T) => AffairType[],
+        id: number,
+        value: T,
+        affairs: AffairType[],
+        successCallback: () => void
+    }) => {
+        setAffairs(changeAffairCallback(affairs, id, value))
+        successCallback()
     }
 
     return (
@@ -51,8 +54,14 @@ export const Homework2=()=> {
                 data={filteredAffairs}
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
-                saveTitle={renameAffairCallback}
-                savePriority={renamePriorityAffairCallback}
+                saveTitle={({callback, id, value}) => changeAffairsCallback<string>({
+                    changeAffairCallback: renameName, id, value,
+                    affairs, successCallback: callback
+                })}
+                savePriority={({callback, id, value}) => changeAffairsCallback<AffairPriorityType>({
+                    changeAffairCallback: renamePriority, id, value,
+                    affairs, successCallback: callback
+                })}
             />
         </div>
     )

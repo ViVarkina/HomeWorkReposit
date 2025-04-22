@@ -7,14 +7,16 @@ type AffairPropsType = {
     deleteAffairCallback: (_id: number) => void // need to fix any
     id: number
     saveTitle: (params: { value: string, callback: () => void, id: number }) => void;
-    savePriority: (params: { callback: () => void, id: number, value: string }) => void;
+    savePriority: (params: { callback: () => void, id: number, value: AffairPriorityType }) => void;
+    priority:AffairPriorityType
 }
 
-export const Affair = ({affair, deleteAffairCallback, id, saveTitle, savePriority}: AffairPropsType) => {
+export const Affair = ({affair, deleteAffairCallback, id, saveTitle, savePriority, priority:defoldPriority}: AffairPropsType) => {
     const [nameVisit, setNameVisit] = useState<boolean>(true);
     const [priorityVisit, setPriorityVisit] = useState<boolean>(true);
     const [value, setValue] = useState<string>(affair);
-    const [priority, setPriority] = useState<string>(AffairPriorityType.ALL)
+    const [priority, setPriority] = useState<AffairPriorityType>(defoldPriority)
+
 
     const closeInput = () => {
         setNameVisit(true);
@@ -38,6 +40,7 @@ export const Affair = ({affair, deleteAffairCallback, id, saveTitle, savePriorit
     return (
         <div className={css.divMainWrapper}>
             <h2>{affair}</h2>
+            <span>{defoldPriority}</span>
             {priorityVisit ? (
                 <div>
                     <button onClick={() => (
@@ -47,16 +50,16 @@ export const Affair = ({affair, deleteAffairCallback, id, saveTitle, savePriorit
                 </div>
             ) : (
                 <div>
-                    <select onChange={(event) => setPriority(event.target.value)} className={css.options}>
-                        <option>{AffairPriorityType.ALL}</option>
-                        <option>{AffairPriorityType.HIGH}</option>
-                        <option>{AffairPriorityType.LOW}</option>
-                        <option>{AffairPriorityType.MIDDLE}</option>
+                    <select onChange={(event) => setPriority(event.target.value as AffairPriorityType)} className={css.options} defaultValue={priority}>
+                        <option value={AffairPriorityType.ALL} >{AffairPriorityType.ALL} </option>
+                        <option value={AffairPriorityType.HIGH}>{AffairPriorityType.HIGH}</option>
+                        <option value={AffairPriorityType.LOW}>{AffairPriorityType.LOW}</option>
+                        <option value={AffairPriorityType.MIDDLE}>{AffairPriorityType.MIDDLE}</option>
                     </select>
                     <div className={css.divWrapperBtn}>
                         <button onClick={() => {
                             setPriorityVisit(true)
-                            setPriority(priority)
+                            setPriority(defoldPriority)
                         }} className={css.primitiveBtnClose}>отменить
                         </button>
                         <button onClick={() => (
