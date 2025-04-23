@@ -18,10 +18,10 @@ export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] =
     return [...affairs].filter((e) => e._id != _id)
 }
 
-export const renameName = (affairs: AffairType[], id:number, value:string):AffairType[] => {
-    return [...affairs].map((e) => e._id === id ? {...e, name:value} : e)
+export const renameName = (affairs: AffairType[], id: number, value: string): AffairType[] => {
+    return [...affairs].map((e) => e._id === id ? {...e, name: value} : e)
 }
 
-export const renamePriority = (affairs: AffairType[], id:number, value:AffairPriorityType):AffairType[] => {
-    return [...affairs].map((e) => e._id === id ? {...e, priority:value} : e)
+export const renamePriority = (affairs: AffairType[], id: number, value: AffairPriorityType): AffairType[] => {
+    return [...affairs].map((e) => e._id === id ? {...e, priority: value} : e)
 }

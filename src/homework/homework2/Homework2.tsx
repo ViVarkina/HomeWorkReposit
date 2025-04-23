@@ -2,15 +2,12 @@ import {useState} from 'react'
 import Affairs from './Affairs'
 import {deleteAffair, filterAffairs, renameName, renamePriority} from "./utils";
 
-// export type AffairPriorityType = 'low' | 'high' | 'middle' // need to fix any
-
 export enum AffairPriorityType {
     LOW = "low",
     HIGH = 'high',
     MIDDLE = 'middle',
     ALL = 'all'
 }
-
 
 export type AffairType = {
     _id: number
@@ -19,7 +16,6 @@ export type AffairType = {
 }
 
 
-// constants
 const defaultAffairs: AffairType[] = [ // need to fix any
     {_id: 1, name: 'React', priority: AffairPriorityType.HIGH},
     {_id: 2, name: 'anime', priority: AffairPriorityType.LOW},
@@ -35,9 +31,9 @@ export const Homework2 = () => {
 
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
+    const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id))
 
-    const changeAffairsCallback = <T,>({changeAffairCallback, id, value, affairs, successCallback}: {
+    const changeAffairsCallback = <T, >({changeAffairCallback, id, value, affairs, successCallback}: {
         changeAffairCallback: (affair: AffairType[], id: number, value: T) => AffairType[],
         id: number,
         value: T,

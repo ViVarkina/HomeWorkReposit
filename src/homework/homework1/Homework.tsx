@@ -20,9 +20,9 @@ const messageData2 = {
     time: '12:00',
 }
 
-export const Homework=()=> {
+export const Homework = () => {
     return (
-        <div style={{display:'flex', flexDirection:'column', gap:'10px', width: '500px'}}>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '10px', width: '500px'}}>
             <Message
                 avatar={messageData.avatar}
                 name={messageData.name}

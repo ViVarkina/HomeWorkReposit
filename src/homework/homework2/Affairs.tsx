@@ -4,18 +4,18 @@ import {Dispatch, SetStateAction} from "react";
 import css from './Affairs.module.css'
 
 
-type AffairsPropsType = { // need to fix any
+type AffairsPropsType = {
     data: AffairType[]
     setFilter: Dispatch<SetStateAction<AffairPriorityType>>
-    deleteAffairCallback: (_id:number)=>void
-    saveTitle: (params:{value: string, callback: () => void, id:number}) => void;
-    savePriority:(params:{callback: () => void, id:number, value: AffairPriorityType}) => void;
+    deleteAffairCallback: (_id: number) => void
+    saveTitle: (params: { value: string, callback: () => void, id: number }) => void;
+    savePriority: (params: { callback: () => void, id: number, value: AffairPriorityType }) => void;
 }
 
-export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePriority}:AffairsPropsType)=> {
+export const Affairs = ({deleteAffairCallback, data, setFilter, saveTitle, savePriority}: AffairsPropsType) => {
     const mappedAffairs = data.map((a) => (
-        <Affair // should work
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+        <Affair
+            key={a._id}
             affair={a.name}
             priority={a.priority}
             deleteAffairCallback={deleteAffairCallback}
@@ -27,7 +27,7 @@ export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePri
 
     const setAll = () => {
         return setFilter(AffairPriorityType.ALL)
-    } // need to fix
+    }
     const setHigh = () => {
         return setFilter(AffairPriorityType.HIGH)
     }
@@ -39,8 +39,7 @@ export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePri
     }
 
     return (
-        <div >
-
+        <div>
             <div>{mappedAffairs}</div>
             <div className={css.divContainerFilter}>
                 <button onClick={setAll} className={css.filterBtn}>All</button>
@@ -48,7 +47,6 @@ export const Affairs=({deleteAffairCallback, data, setFilter, saveTitle, savePri
                 <button onClick={setMiddle} className={css.filterBtn}>Middle</button>
                 <button onClick={setLow} className={css.filterBtn}>Low</button>
             </div>
-
         </div>
     )
 }

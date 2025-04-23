@@ -1,4 +1,4 @@
-.primitiveBtnClose{
+.primitiveBtnClose {
     padding: 5px;
     background: #f86e6e;
     border: none;
@@ -6,7 +6,7 @@
     color: white;
 }
 
-.primitiveBtnOpen{
+.primitiveBtnOpen {
     padding: 5px;
     background: #6ef879;
     border: none;
@@ -14,20 +14,19 @@
     color: white;
 }
 
-.divWrapperBtn{
+.divWrapperBtn {
     display: flex;
     gap: 10px;
     margin: 5px
 }
 
-.divMainWrapper{
+.divMainWrapper {
     display: flex;
     gap: 20px;
-    padding: 10px 5px;
-    ;
+    padding: 10px 5px;;
 }
 
-.filterBtn{
+.filterBtn {
     padding: 3px 10px;
     background: #7da3b6;
     border: none;
@@ -35,12 +34,12 @@
     color: white;
 }
 
-.divContainerFilter{
+.divContainerFilter {
     display: flex;
     gap: 10px;
 }
 
-.changeBtn{
+.changeBtn {
     padding: 2px 5px;
     background: #cbb8d7;
     border: none;
@@ -48,7 +47,7 @@
     color: #36293d;
 }
 
-.options{
+.options {
     padding: 2px 5px;
     background: #d4e8ff;
     border: none;
@@ -57,7 +56,7 @@
 
 }
 
-.inputSetting{
+.inputSetting {
     background: #d4e8ff;
     border: none;
     border-radius: 5px;
@@ -65,7 +64,7 @@
     padding: 2px 5px;
 }
 
-.btnDel{
+.btnDel {
     padding: 5px;
     background: #f86e6e;
     border: none;

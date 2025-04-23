@@ -3,15 +3,22 @@ import {AffairPriorityType} from "./Homework2.tsx";
 import css from './Affairs.module.css'
 
 type AffairPropsType = {
-    affair: string // need to fix any
-    deleteAffairCallback: (_id: number) => void // need to fix any
+    affair: string
+    deleteAffairCallback: (_id: number) => void
     id: number
     saveTitle: (params: { value: string, callback: () => void, id: number }) => void;
     savePriority: (params: { callback: () => void, id: number, value: AffairPriorityType }) => void;
-    priority:AffairPriorityType
+    priority: AffairPriorityType
 }
 
-export const Affair = ({affair, deleteAffairCallback, id, saveTitle, savePriority, priority:defoldPriority}: AffairPropsType) => {
+export const Affair = ({
+                           affair,
+                           deleteAffairCallback,
+                           id,
+                           saveTitle,
+                           savePriority,
+                           priority: defoldPriority
+                       }: AffairPropsType) => {
     const [nameVisit, setNameVisit] = useState<boolean>(true);
     const [priorityVisit, setPriorityVisit] = useState<boolean>(true);
     const [value, setValue] = useState<string>(affair);
@@ -50,8 +57,9 @@ export const Affair = ({affair, deleteAffairCallback, id, saveTitle, savePriorit
                 </div>
             ) : (
                 <div>
-                    <select onChange={(event) => setPriority(event.target.value as AffairPriorityType)} className={css.options} defaultValue={priority}>
-                        <option value={AffairPriorityType.ALL} >{AffairPriorityType.ALL} </option>
+                    <select onChange={(event) => setPriority(event.target.value as AffairPriorityType)}
+                            className={css.options} defaultValue={priority}>
+                        <option value={AffairPriorityType.ALL}>{AffairPriorityType.ALL} </option>
                         <option value={AffairPriorityType.HIGH}>{AffairPriorityType.HIGH}</option>
                         <option value={AffairPriorityType.LOW}>{AffairPriorityType.LOW}</option>
                         <option value={AffairPriorityType.MIDDLE}>{AffairPriorityType.MIDDLE}</option>
