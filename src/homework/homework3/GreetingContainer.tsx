@@ -16,11 +16,9 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         // need to fix
     }
     const addUser = (e:string) => {
-        if(!e){
-            setError(false)
-        }
         alert(`Hello  ${e}!`) // need to fix
     }
+
 
     const totalUsers =  users.length// need to fix
 

@@ -1,17 +1,9 @@
 .primitiveBtnClose {
-    padding: 5px;
     background: #f86e6e;
-    border: none;
-    border-radius: 10px;
-    color: white;
 }
 
 .primitiveBtnOpen {
-    padding: 5px;
     background: #6ef879;
-    border: none;
-    border-radius: 10px;
-    color: white;
 }
 
 .divWrapperBtn {
@@ -56,20 +48,8 @@
 
 }
 
-.inputSetting {
-    background: #d4e8ff;
-    border: none;
-    border-radius: 5px;
-    color: #292f3d;
-    padding: 2px 5px;
-}
-
 .btnDel {
     padding: 5px;
-    background: #f86e6e;
-    border: none;
-    border-radius: 10px;
-    color: white;
     width: 30px;
     height: 30px;
 }

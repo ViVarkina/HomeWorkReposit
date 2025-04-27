@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {AffairPriorityType} from "./Homework2.tsx";
 import css from './Affairs.module.css'
+import SuperButton from "../homework4/common/c2-SuperButton/SuperButton.tsx";
+import SuperInputText from "../homework4/common/c1-SuperInputText/SuperInputText.tsx";
 
 type AffairPropsType = {
     affair: string
@@ -50,10 +52,10 @@ export const Affair = ({
             <span>{defoldPriority}</span>
             {priorityVisit ? (
                 <div>
-                    <button onClick={() => (
+                    <SuperButton onClick={() => (
                         setPriorityVisit(false)
-                    )} className={css.changeBtn}>change priority
-                    </button>
+                    )} >change priority
+                    </SuperButton>
                 </div>
             ) : (
                 <div>
@@ -65,46 +67,46 @@ export const Affair = ({
                         <option value={AffairPriorityType.MIDDLE}>{AffairPriorityType.MIDDLE}</option>
                     </select>
                     <div className={css.divWrapperBtn}>
-                        <button onClick={() => {
+                        <SuperButton onClick={() => {
                             setPriorityVisit(true)
                             setPriority(defoldPriority)
                         }} className={css.primitiveBtnClose}>отменить
-                        </button>
-                        <button onClick={() => (
+                        </SuperButton>
+                        <SuperButton onClick={() => (
                             savePriorityValue()
                         )} className={css.primitiveBtnOpen}>готово
-                        </button>
+                        </SuperButton>
                     </div>
                 </div>
             )}
             {nameVisit ? (
                 <div>
-                    <button onClick={() => (
+                    <SuperButton onClick={() => (
                         setNameVisit(false)
-                    )} className={css.changeBtn}>change name
-                    </button>
+                    )} >change name
+                    </SuperButton>
                 </div>
 
             ) : (
                 <div>
-                    <input className={css.inputSetting} placeholder={"изменить"} value={value} onChange={(e) => {
+                    <SuperInputText  placeholder={"изменить"} value={value} onChange={(e) => {
                         setValue(e.target.value)
                     }}/>
                     <div className={css.divWrapperBtn}>
-                        <button onClick={() => {
+                        <SuperButton onClick={() => {
                             setNameVisit(true)
                             setValue(affair)
                         }} className={css.primitiveBtnClose}>отменить
-                        </button>
-                        <button onClick={() => (
+                        </SuperButton>
+                        <SuperButton onClick={() => (
                             saveTitleInput()
                         )} className={css.primitiveBtnOpen}>готово
-                        </button>
+                        </SuperButton>
                     </div>
                 </div>
 
             )}
-            <button onClick={deleteCallback} className={css.btnDel}>X</button>
+            <SuperButton onClick={deleteCallback} className={css.btnDel}>X</SuperButton>
         </div>
     )
 }
