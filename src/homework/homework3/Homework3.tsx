@@ -18,7 +18,6 @@ function Homework3() {
         setUsers(addUser(id, name, users))
 
     }
-    console.log(users)
     return (
         <div>
             <GreetingContainer users={users} addUserCallback={addUserCallback}/>

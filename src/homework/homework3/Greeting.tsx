@@ -15,7 +15,7 @@ type GreetingPropsType = {
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser,error, totalUsers, addUserCallback} // деструктуризация пропсов
+    {name, setNameCallback, addUser, error, totalUsers, addUserCallback} // деструктуризация пропсов
 ) => {
     const [value, setValue] = useState<string>('')
     const inputClass = s.error // need to fix with (?:) функция для цвета
@@ -23,13 +23,14 @@ const Greeting: React.FC<GreetingPropsType> = (
     return (
         <div>
             <SuperInputText value={name} onChange={(e) => {
-                setValue(e.target.value)
+                setValue(e.currentTarget.value)
                 setNameCallback(value)
             }} className={inputClass}/>
             <span>{error}</span>
             <SuperButton onClick={() => {
                 addUser(value)
                 addUserCallback(uuid(), value)
+                console.log(uuid(), value)
             }}>add
             </SuperButton>
             <span>{totalUsers}</span>

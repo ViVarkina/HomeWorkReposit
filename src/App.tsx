@@ -1,12 +1,12 @@
 import './App.css'
-import Homework4 from "./homework/homework4/Homework4.tsx";
-import Homework3 from "./homework/homework3/Homework3.tsx";
+import {PrintPyramid} from "./PrintPyramid.tsx";
 
 
 function App() {
     return (<>
-        <Homework3/>
-        <Homework4/>
+        {/*<Homework3/>*/}
+        {/*<Homework4/>*/}
+        <PrintPyramid/>
     </>)
 }
 
