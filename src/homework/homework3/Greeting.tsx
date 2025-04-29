@@ -10,27 +10,37 @@ type GreetingPropsType = {
     addUser: (e: string) => void // need to fix any
     totalUsers: number // need to fix any
     addUserCallback: (name: string, id: string) => void
-    error: string
+    // error: boolean
 }
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser, error, totalUsers, addUserCallback} // деструктуризация пропсов
+    { addUser, totalUsers, addUserCallback} // деструктуризация пропсов
 ) => {
     const [value, setValue] = useState<string>('')
-    const inputClass = s.error // need to fix with (?:) функция для цвета
+    const [error, setError] = useState<boolean>(true)
+
+    const errfunc=()=>{
+        if(value == ""){
+            setError(false)
+        }
+        else{
+            setError(true)
+            addUser(value)
+            addUserCallback(uuid(), value)
+        }
+    }
+
+    const inputClass = `${!error ? '' : s.error}` // need to fix with (?:) функция для цвета
+
+
 
     return (
         <div>
-            <SuperInputText value={name} error onChange={(e) => {
-                setValue(e.currentTarget.value)
-                setNameCallback(value)
-            }} className={inputClass}/>
-            <span>{error}</span>
+            <SuperInputText onChange={(e)=>setValue(e.currentTarget.value)} className={inputClass} />
+            {/*<span>{error}</span>*/}
             <SuperButton onClick={() => {
-                addUser(value)
-                addUserCallback(uuid(), value)
-                console.log(uuid(), value)
+                errfunc()
             }}>add
             </SuperButton>
             <span>{totalUsers}</span>

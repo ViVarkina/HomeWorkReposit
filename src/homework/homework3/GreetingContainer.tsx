@@ -8,21 +8,20 @@ type GreetingContainerPropsType = {
 }
 
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<string>('') // need to fix any
-    const error = users.map((a)=>a.name) ? '' : 'error'
-
-
+    const [name, setName] = useState<string>() // need to fix any
 
     const setNameCallback = (e: string) => { // need to fix any
         setName(e)
-        // need to fix
     }
     const addUser = (e:string) => {
-        alert(`Hello  ${e}!`) // need to fix
+        if(e != ''){
+            alert(`Hello  ${e}!`)
+        }
     }
 
 
-    const totalUsers =  users.length// need to fix
+    const totalUsers =  users.length
+    console.log(users)
 
     return (
         <div>
@@ -30,7 +29,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
                 name={name}
                 setNameCallback={setNameCallback}
                 addUser={addUser}
-                error={error}
+                // error={error}
                 totalUsers={totalUsers}
                 addUserCallback={addUserCallback}
             />
