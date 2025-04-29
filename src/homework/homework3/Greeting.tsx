@@ -10,7 +10,7 @@ type GreetingPropsType = {
     addUser: (e: string) => void // need to fix any
     totalUsers: number // need to fix any
     addUserCallback: (name: string, id: string) => void
-    error: boolean
+    error: string
 }
 
 // презентационная компонента (для верстальщика)
@@ -22,7 +22,7 @@ const Greeting: React.FC<GreetingPropsType> = (
 
     return (
         <div>
-            <SuperInputText value={name} onChange={(e) => {
+            <SuperInputText value={name} error onChange={(e) => {
                 setValue(e.currentTarget.value)
                 setNameCallback(value)
             }} className={inputClass}/>

@@ -9,7 +9,9 @@ type GreetingContainerPropsType = {
 
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
     const [name, setName] = useState<string>('') // need to fix any
-    const [error, setError] = useState<boolean>(true) // need to fix any
+    const error = users.map((a)=>a.name) ? '' : 'error'
+
+
 
     const setNameCallback = (e: string) => { // need to fix any
         setName(e)
