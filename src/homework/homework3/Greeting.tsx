@@ -21,12 +21,12 @@ const Greeting: React.FC<GreetingPropsType> = (
     return (
         <div>
             <SuperInputText onChange={(e) => {
-                setValue(e.currentTarget.value)
+                setValue((e.currentTarget.value).trim())
             }} error={error} value={value}/>
             <SuperButton onClick={() => {
                 if (value !== '') {
-                    addUser(value.trim())
-                    addUserCallback(uuid(), value.trim())
+                    addUser(value)
+                    addUserCallback(uuid(), value)
                     setValue('')
                 }
 
