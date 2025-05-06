@@ -16,6 +16,7 @@ const Greeting: React.FC<GreetingPropsType> = (
     {addUser, totalUsers, addUserCallback, error, setNameCallback}
 ) => {
     const [value, setValue] = useState<string>('')
+    const [emptyField, setEmptyField] = useState<boolean>(false)
 
     setNameCallback(value)
 
@@ -24,13 +25,18 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.mainContain}>
                 <SuperInputText onChange={(e) => {
                     setValue((e.currentTarget.value).trim())
-                }} error={error} value={value} className={s.baseSize} placeholder={'Введите имя'}/>
+                }} error={emptyField ? error : ''} value={value} className={s.baseSize} placeholder={'Введите имя'}/>
                 <SuperButton onClick={() => {
                     if (value !== '') {
                         addUser(value)
                         addUserCallback(uuid(), value)
                         setValue('')
+                        setEmptyField(false)
                     }
+                    else {
+                        setEmptyField(true)
+                    }
+
                 }} className={s.baseSize}>add
                 </SuperButton>
             </div>
