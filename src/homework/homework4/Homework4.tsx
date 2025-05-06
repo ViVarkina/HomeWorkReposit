@@ -4,8 +4,6 @@ import s from './HW4.module.css'
 import SuperButton from "./common/c2-SuperButton/SuperButton.tsx";
 import SuperCheckbox from "./common/c3-SuperCheckbox/SuperCheckbox.tsx";
 
-// import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
-
 function Homework4() {
     const [text, setText] = useState<string>('')
     const error = text  ? '' : 'error'
