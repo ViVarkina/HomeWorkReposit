@@ -18,6 +18,15 @@ const Greeting: React.FC<GreetingPropsType> = (
     const [value, setValue] = useState<string>('')
     const [emptyField, setEmptyField] = useState<boolean>(false)
 
+    const handleKeyPress = (event) => {
+        if(event.key === 'Enter'){
+            addUser(value)
+            addUserCallback(uuid(), value)
+            setValue('')
+            setEmptyField(false)
+        }
+    };
+
     setNameCallback(value)
 
     return (
@@ -25,7 +34,7 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.mainContain}>
                 <SuperInputText onChange={(e) => {
                     setValue((e.currentTarget.value).trim())
-                }} error={emptyField ? error : ''} value={value} className={s.baseSize} placeholder={'Введите имя'}/>
+                }} error={emptyField ? error : ''} value={value} className={s.baseSize} placeholder={'Введите имя'} onKeyDown={handleKeyPress}/>
                 <SuperButton onClick={() => {
                     if (value !== '') {
                         addUser(value)
