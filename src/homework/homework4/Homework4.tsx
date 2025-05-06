@@ -6,19 +6,19 @@ import SuperCheckbox from "./common/c3-SuperCheckbox/SuperCheckbox.tsx";
 
 function Homework4() {
     const [text, setText] = useState<string>('')
-    const error = text  ? '' : 'error'
+    const error = text ? '' : 'error'
 
     const showAlert = () => {
         if (error) {
             alert('введите текст...')
         } else {
-            alert(text) // если нет ошибки показать текст
+            alert(text)
         }
     }
 
     const [checked, setChecked] = useState<boolean>(false)
     const testOnChange = () => {
-
+    // в разработке
     }
 
     return (
@@ -29,20 +29,20 @@ function Homework4() {
                     onChangeText={setText}
                     onEnter={showAlert}
                     error={error}
-                    // spanClassName={s.testSpanError}
+
                 />
                 <SuperInputText
                     className={s.blue}
-                    // проверьте, рабоет ли смешивание классов
+
                 />
                 <SuperButton>
-                     default
+                    default
                 </SuperButton>
                 <SuperButton
-                    red // пропсу с булевым значением не обязательно указывать true
+                    red
                     onClick={showAlert}
                 >
-                    delete {/*// название кнопки попадёт в children*/}
+                    delete
                 </SuperButton>
 
                 <SuperButton disabled>
@@ -53,11 +53,8 @@ function Homework4() {
                     checked={checked}
                     onChangeChecked={setChecked}
                 >
-                    some text {/*// этот текст попадёт в children*/}
+                    some text
                 </SuperCheckbox>
-
-
-                {/*// onChange тоже должен работать*/}
                 <SuperCheckbox checked={checked} onChange={testOnChange}/>
             </div>
         </div>

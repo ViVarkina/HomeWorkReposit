@@ -20,10 +20,16 @@ const Greeting: React.FC<GreetingPropsType> = (
 
     const handleKeyPress = (event) => {
         if(event.key === 'Enter'){
-            addUser(value)
-            addUserCallback(uuid(), value)
-            setValue('')
-            setEmptyField(false)
+            if (value !== '') {
+                addUser(value)
+                addUserCallback(uuid(), value)
+                setValue('')
+                setEmptyField(false)
+            }
+            else{
+                setEmptyField(true)
+            }
+
         }
     };
 
