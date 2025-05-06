@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import uuid from "react-uuid"
 import SuperInputText from "../homework4/common/c1-SuperInputText/SuperInputText.tsx";
 import SuperButton from "../homework4/common/c2-SuperButton/SuperButton.tsx";
+import s from './Greeting.module.css'
 
 type GreetingPropsType = {
     setNameCallback: (e: string) => void
@@ -19,20 +20,21 @@ const Greeting: React.FC<GreetingPropsType> = (
     setNameCallback(value)
 
     return (
-        <div>
-            <SuperInputText onChange={(e) => {
-                setValue((e.currentTarget.value).trim())
-            }} error={error} value={value}/>
-            <SuperButton onClick={() => {
-                if (value !== '') {
-                    addUser(value)
-                    addUserCallback(uuid(), value)
-                    setValue('')
-                }
-
-            }}>add
-            </SuperButton>
-            <span>{totalUsers}</span>
+        <div className={s.divContainer}>
+            <div className={s.mainContain}>
+                <SuperInputText onChange={(e) => {
+                    setValue((e.currentTarget.value).trim())
+                }} error={error} value={value} className={s.baseSize} placeholder={'Введите имя'}/>
+                <SuperButton onClick={() => {
+                    if (value !== '') {
+                        addUser(value)
+                        addUserCallback(uuid(), value)
+                        setValue('')
+                    }
+                }} className={s.baseSize}>add
+                </SuperButton>
+            </div>
+            <span className={s.styleTotal}>{totalUsers} пользователей в массиве</span>
         </div>
     )
 }

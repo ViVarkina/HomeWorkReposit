@@ -1,5 +1,6 @@
 import GreetingContainer from './GreetingContainer'
 import {useState} from "react";
+import './HomeWork4.css'
 
 
 export type UserType = {
@@ -20,7 +21,7 @@ export const Homework3 = () => {
     }
 
     return (
-        <div>
+        <div className={"wrapperContainer"}>
             <GreetingContainer users={users} addUserCallback={addUserCallback}/>
         </div>
     )
