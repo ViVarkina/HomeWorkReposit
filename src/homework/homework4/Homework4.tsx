@@ -1,13 +1,14 @@
-import {ChangeEvent, useState} from 'react'
+import {useState} from 'react'
 import SuperInputText from './common/c1-SuperInputText/SuperInputText'
 import s from './HW4.module.css'
 import SuperButton from "./common/c2-SuperButton/SuperButton.tsx";
 import SuperCheckbox from "./common/c3-SuperCheckbox/SuperCheckbox.tsx";
+
 // import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
 
 function Homework4() {
     const [text, setText] = useState<string>('')
-    const error = text ? '' : 'error'
+    const error = text  ? '' : 'error'
 
     const showAlert = () => {
         if (error) {
@@ -18,7 +19,7 @@ function Homework4() {
     }
 
     const [checked, setChecked] = useState<boolean>(false)
-    const testOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const testOnChange = () => {
 
     }
 
@@ -33,7 +34,8 @@ function Homework4() {
                     // spanClassName={s.testSpanError}
                 />
                 <SuperInputText
-                    className={s.blue} // проверьте, рабоет ли смешивание классов
+                    className={s.blue}
+                    // проверьте, рабоет ли смешивание классов
                 />
                 <SuperButton>
                      default

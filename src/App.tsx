@@ -1,10 +1,11 @@
 import './App.css'
-import Homework3 from "./homework/homework3/Homework3.tsx";
+import {Homework3} from "./homework/homework3/Homework3.tsx";
 
 
 function App() {
     return (<>
         <Homework3/>
+
 
     </>)
 }
