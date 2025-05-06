@@ -17,9 +17,6 @@ function Homework4() {
     }
 
     const [checked, setChecked] = useState<boolean>(false)
-    const testOnChange = () => {
-    // в разработке
-    }
 
     return (
         <div>
@@ -55,7 +52,7 @@ function Homework4() {
                 >
                     some text
                 </SuperCheckbox>
-                <SuperCheckbox checked={checked} onChange={testOnChange}/>
+                <SuperCheckbox checked={checked} />
             </div>
         </div>
     )
