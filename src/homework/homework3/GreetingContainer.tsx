@@ -9,7 +9,6 @@ type GreetingContainerPropsType = {
 
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
     const [name, setName] = useState<string>('')
-    const error = name ? '' : 'error'
 
     const setNameCallback = (e: string) => {
         setName(e)
@@ -27,7 +26,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             <Greeting
                 setNameCallback={setNameCallback}
                 addUser={addUser}
-                error={error}
+                name={name}
                 totalUsers={totalUsers}
                 addUserCallback={addUserCallback}
             />
