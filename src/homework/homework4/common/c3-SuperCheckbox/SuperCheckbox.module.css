@@ -1,0 +1,53 @@
+.checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.fakeCheckedBox{
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #a6a6a6;
+    border-radius: 5px;
+    transition: all 0.5s;
+
+}
+
+.checkbox:checked ~ .fakeCheckedBox{
+    background: #2d88e3;
+    border-radius: 5px;
+    border: 2px solid #2d88e3;
+    transition: all 0.5s;
+
+}
+
+
+.fakeCheckedBox:after {
+    content: '';
+    position: absolute;
+    display: none;
+    width: 4px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    left: 5px;
+    top: 0px;
+
+}
+
+.checkbox:checked ~ .fakeCheckedBox:after {
+    display: block;
+}
+
+.spanClassName{
+    /*position: relative;*/
+}
+
+
+
+
+

@@ -2,6 +2,7 @@ import {Affair} from './Affair'
 import {AffairPriorityType, AffairType} from './Homework2.tsx'
 import {Dispatch, SetStateAction} from "react";
 import css from './Affairs.module.css'
+import SuperButton from "../homework4/common/c2-SuperButton/SuperButton.tsx";
 
 
 type AffairsPropsType = {
@@ -42,10 +43,10 @@ export const Affairs = ({deleteAffairCallback, data, setFilter, saveTitle, saveP
         <div>
             <div>{mappedAffairs}</div>
             <div className={css.divContainerFilter}>
-                <button onClick={setAll} className={css.filterBtn}>All</button>
-                <button onClick={setHigh} className={css.filterBtn}>High</button>
-                <button onClick={setMiddle} className={css.filterBtn}>Middle</button>
-                <button onClick={setLow} className={css.filterBtn}>Low</button>
+                <SuperButton onClick={setAll} >All</SuperButton>
+                <SuperButton onClick={setHigh} >High</SuperButton>
+                <SuperButton onClick={setMiddle}>Middle</SuperButton>
+                <SuperButton onClick={setLow} >Low</SuperButton>
             </div>
         </div>
     )

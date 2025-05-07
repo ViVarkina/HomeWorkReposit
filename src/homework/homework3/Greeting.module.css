@@ -1,0 +1,22 @@
+.divContainer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContain {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.styleTotal {
+    font-size: 20px;
+    color: #2d88e3;
+
+}
+

@@ -1,0 +1,21 @@
+.default {
+    padding: 6px 15px;
+    background: #1677FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+ .default:disabled {
+     background: #345085;
+     color: #a6a6a6;
+
+ }
+.red {
+    background: #2ddde3;
+    padding: 6px 15px;
+    color: white;
+    border: none;
+    border-bottom-right-radius: 10px;
+}
+
