@@ -10,6 +10,7 @@ type GreetingContainerPropsType = {
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
     const [name, setName] = useState<string>('')
 
+
     const setNameCallback = (e: string) => {
         setName(e)
     }

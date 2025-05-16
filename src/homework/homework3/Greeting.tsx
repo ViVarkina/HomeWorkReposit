@@ -9,7 +9,7 @@ type GreetingPropsType = {
     addUser: (e: string) => void
     totalUsers: number
     addUserCallback: (name: string, id: string) => void
-    name:string
+    name: string
 }
 
 const Greeting: React.FC<GreetingPropsType> = (
@@ -19,19 +19,22 @@ const Greeting: React.FC<GreetingPropsType> = (
     const [emptyField, setEmptyField] = useState<boolean>(false)
 
     const handleKeyPress = (event) => {
-        if(event.key === 'Enter'){
+        if (event.key === 'Enter') {
             if (value !== '') {
                 addUser(value)
                 addUserCallback(uuid(), value)
                 setValue('')
                 setEmptyField(false)
-            }
-            else{
+            } else {
                 setEmptyField(true)
             }
 
         }
     };
+
+    const focusInput = () => {
+        setEmptyField(false)
+    }
 
     setNameCallback(value)
 
@@ -40,15 +43,15 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.mainContain}>
                 <SuperInputText onChange={(e) => {
                     setValue((e.currentTarget.value).trim())
-                }} error={emptyField && name == '' ? 'error' : ''} value={value} className={s.baseSize} placeholder={'Введите имя'} onKeyDown={handleKeyPress}/>
+                }} error={emptyField && name == '' ? "error" : ''} value={value} className={s.baseSize}
+                                placeholder={'Введите имя'} onKeyDown={handleKeyPress} onFocus={focusInput}/>
                 <SuperButton onClick={() => {
                     if (value !== '') {
                         addUser(value)
                         addUserCallback(uuid(), value)
                         setValue('')
                         setEmptyField(false)
-                    }
-                    else {
+                    } else {
                         setEmptyField(true)
                     }
 
