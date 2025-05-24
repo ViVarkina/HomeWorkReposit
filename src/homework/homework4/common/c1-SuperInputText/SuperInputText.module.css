@@ -1,0 +1,22 @@
+.superInput {
+
+}
+
+.errorInput {
+    border: 1px solid red;
+
+}
+
+.trueInput{
+    border: 1px solid gray;
+    color: gray;
+}
+
+.baseInput{
+    padding: 7px 12px;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+}

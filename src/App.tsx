@@ -1,11 +1,12 @@
 import './App.css'
-import {Homework2} from "./homework/homework2/Homework2.tsx";
+import {Homework3} from "./homework/homework3/Homework3.tsx";
 
 
 function App() {
     return (<>
-        {/*<Homework/>*/}
-        <Homework2/>
+        <Homework3/>
+
+
     </>)
 }
 
