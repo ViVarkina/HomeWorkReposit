@@ -51,6 +51,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
             {error && <span className={finalSpanClassName}>Пустое поле*</span>}
         </>
     )
+
 }
 
 export default SuperInputText

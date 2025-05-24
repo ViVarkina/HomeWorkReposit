@@ -17,6 +17,7 @@ function Homework4() {
     }
 
     const [checked, setChecked] = useState<boolean>(false)
+    console.log(checked)
 
     return (
         <div>
