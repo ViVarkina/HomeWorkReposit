@@ -1,16 +1,23 @@
 * {
     padding: 0;
     margin: 0;
-    background: #efefef;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.btnWid{
-    width: 200px;
-    margin: 0 0 0 20px;
+.size {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
+.work1 {
+    background: #B5E61B;
+    padding: 10px;
+}
+
+
