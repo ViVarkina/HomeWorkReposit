@@ -1,5 +1,6 @@
 import {describe, expect, test} from 'vitest'
-import {clx} from "../Message.tsx";
+import {clx} from "../utils";
+
 
 describe('clx tests', () => {
     test('combining className', () => {

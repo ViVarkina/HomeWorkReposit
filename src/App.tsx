@@ -12,17 +12,17 @@ function App() {
             <Homework/>
         </div>
         <hr/>
-        <div className={'work2 size'}>
+        <div className={'size'}>
             <h1>HomeWork 2</h1>
             <Homework2/>
         </div>
         <hr/>
-        <div className={'work3 size'}>
+        <div className={'size'}>
             <h1>HomeWork 3</h1>
             <Homework3/>
         </div>
         <hr/>
-        <div className={'work4 size'}>
+        <div className={'size'}>
             <h1>HomeWork 4</h1>
             <Homework4/>
         </div>
