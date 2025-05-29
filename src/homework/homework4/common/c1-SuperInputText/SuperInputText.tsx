@@ -1,5 +1,6 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from 'react'
 import s from './SuperInputText.module.css'
+import {clx} from "../../../homework1/utils";
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
@@ -8,49 +9,55 @@ type SuperInputTextPropsType = DefaultInputPropsType & {
     onEnter?: () => void
     error?: string
     spanClassName?: string
+    errorCallback?: (e:string)=>void
 }
 
 const SuperInputText: React.FC<SuperInputTextPropsType> = (
     {
-        type,
         onChange, onChangeText,
-        onKeyPress, onEnter,
+        onKeyDown, onEnter,
         error,
         className, spanClassName,
 
         ...restProps
     }
 ) => {
+    // пофиксить ошибки
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange
-        && onChange(e)
-
-        onChangeText && onChangeText(e.currentTarget.value)
+        if(onChangeText){
+            onChangeText(e.currentTarget.value)
+        }
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
-        onKeyPress && onKeyPress(e);
-
-        onEnter
-        && e.key === 'Enter'
-        && onEnter()
+        if(onKeyDown){
+            onKeyDown (e);
+        }
+        if (onEnter && e.key === 'Enter') {
+            onEnter();
+        }
     }
 
-    const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ''}`
-    const finalInputClassName = `${className} ${s.baseInput} ${error ? s.errorInput : s.trueInput}`
+    // переписать на функцию
+    const finalSpanClassName = clx([s.error], {[spanClassName ? spanClassName : '']: true})
+    const finalInputClassName = clx([s.className, s.baseInput, className ? className : ''], {[error ? s.errorInput : s.trueInput]: true})
+
+
 
     return (
         <>
             <input
                 type={'text'}
                 onChange={onChangeCallback}
-                onKeyPress={onKeyPressCallback}
+                //заменить key
+                onKeyDown={onKeyPressCallback}
                 className={finalInputClassName}
-
                 {...restProps}
             />
+            {/*Задавать текст из вне*/}
             {error && <span className={finalSpanClassName}>Пустое поле*</span>}
         </>
     )
+
 }
 
 export default SuperInputText

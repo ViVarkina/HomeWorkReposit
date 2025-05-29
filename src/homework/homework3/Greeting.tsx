@@ -18,7 +18,7 @@ const Greeting: React.FC<GreetingPropsType> = (
     const [value, setValue] = useState<string>('')
     const [emptyField, setEmptyField] = useState<boolean>(false)
 
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             if (value !== '') {
                 addUser(value)

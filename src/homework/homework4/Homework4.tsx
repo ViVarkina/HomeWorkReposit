@@ -6,7 +6,17 @@ import SuperCheckbox from "./common/c3-SuperCheckbox/SuperCheckbox.tsx";
 
 function Homework4() {
     const [text, setText] = useState<string>('')
-    const error = text ? '' : 'error'
+    // const error = text ? '' : 'error'
+    const [error, setError] = useState('')
+
+    const errorCallback=()=>{
+        if(!text){
+            setError('error')
+        }else{
+            setError('')
+        }
+    }
+
 
     const showAlert = () => {
         if (error) {
@@ -17,6 +27,11 @@ function Homework4() {
     }
 
     const [checked, setChecked] = useState<boolean>(false)
+    // console.log(checked)
+
+    // console.log(text)
+
+
 
     return (
         <div>
@@ -26,7 +41,6 @@ function Homework4() {
                     onChangeText={setText}
                     onEnter={showAlert}
                     error={error}
-
                 />
                 <SuperInputText
                     className={s.blue}
